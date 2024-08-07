@@ -1,0 +1,29 @@
+.projects-page {
+    padding: 20px;
+  }
+  
+  .projects-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .project-item {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    width: calc(33.333% - 40px);
+    box-sizing: border-box;
+  }
+  
+  .project-img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .project-links a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+  }
+  

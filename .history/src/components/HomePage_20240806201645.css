@@ -1,0 +1,23 @@
+.home-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  .social-links a {
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  .projects-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
