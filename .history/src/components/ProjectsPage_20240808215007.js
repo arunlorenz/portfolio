@@ -5,10 +5,10 @@ import './ProjectsPage.css';
 const projects = [
   {
     title: 'Bus Pass System',
-    description: 'Enterprise Bus Pass System',
+    description: 'Description of project 1',
     img: 'project1-image-url.jpg',
-    repo: 'https://github.com/arunlorenz/Bus-Pass-System',
-    live: 'https://bus-pass-sys.vercel.app'
+    repo: 'https://github.com/arunlorenz/Bus-Pass-sys',
+    live: 'https://project1-live-url.com'
   },
   {
     title: 'Project 2',
