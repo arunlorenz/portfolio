@@ -18,7 +18,7 @@ const HomePage = () => {
 
   return (
     <div className="home-page">
-      <img src="your-photo-url.jpg" alt="Your Name" className="profile-pic" />
+      <img src="https://res.cloudinary.com/dfbibvdhq/image/upload/f_auto,q_auto/yfybfen6hqtdmb1a4v8y" alt="Arunkumar N S" className="profile-pic" />
       <h1>Arunkumar N S</h1>
       <h2>Dev. Java/Cloud Computing</h2>
       <div className="social-links">
