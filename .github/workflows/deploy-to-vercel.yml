@@ -35,7 +35,7 @@ jobs:
       if: always()
       run: |
         curl -X POST https://api.twilio.com/2010-04-01/Accounts/${{ secrets.TWILIO_ACCOUNT_SID }}/Messages.json \
-          --data-urlencode "Body=Portfolio GitHub Action CI/CD Status: ${{ job.status }}" \
+          --data-urlencode "Body=Portfolio GitHub Action CI/CD Status: ${{ job.status }} ✔️" \
           --data-urlencode "From=whatsapp:${{ secrets.TWILIO_WHATSAPP_NUMBER }}" \
           --data-urlencode "To=whatsapp:${{ secrets.MY_WHATSAPP_NUMBER }}" \
           -u "${{ secrets.TWILIO_ACCOUNT_SID }}:${{ secrets.TWILIO_AUTH_TOKEN }}"
