@@ -31,7 +31,7 @@ jobs:
         PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       run: npx vercel --prod --token $VERCEL_TOKEN --yes
 
-    - name: Send status to WhatsApp
+    - name: Send CI/CD status to WhatsApp
       if: always()
       run: |
         curl -X POST https://api.twilio.com/2010-04-01/Accounts/${{ secrets.TWILIO_ACCOUNT_SID }}/Messages.json \
