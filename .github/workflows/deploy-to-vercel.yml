@@ -33,7 +33,7 @@ jobs:
 
     - name: Send notification to WhatsApp
       if: always()
-      uses: wagoid/notify-action@v2
+      uses: haroldb19/twilio-send-message@v1.0.0
       with:
           to: ${{ secrets.MY_WHATSAPP_NUMBER }}
           from: ${{ secrets.TWILIO_WHATSAPP_NUMBER }}
