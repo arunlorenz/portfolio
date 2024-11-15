@@ -33,11 +33,9 @@ jobs:
 
     - name: Send notification to WhatsApp
       if: always()
-      uses: haroldb19/twilio-send-message@v1.0.0
-      with:
-          to: ${{ secrets.MY_WHATSAPP_NUMBER }}
-          from: ${{ secrets.TWILIO_WHATSAPP_NUMBER }}
-          body: "Portfolio GitHub Action CI/CD Status: ${{ job.status }}"
-      env:
-          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
-          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+      run: |
+        curl -X POST https://api.twilio.com/2010-04-01/Accounts/${{ secrets.TWILIO_ACCOUNT_SID }}/Messages.json \
+          --data-urlencode "Body=Portfolio GitHub Action CI/CD Status: ${{ job.status }}" \
+          --data-urlencode "From=whatsapp:${{ secrets.TWILIO_WHATSAPP_NUMBER }}" \
+          --data-urlencode "To=whatsapp:${{ secrets.MY_WHATSAPP_NUMBER }}" \
+          -u "${{ secrets.TWILIO_ACCOUNT_SID }}:${{ secrets.TWILIO_AUTH_TOKEN }}"
