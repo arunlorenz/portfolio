@@ -34,8 +34,24 @@ jobs:
     - name: Send CI/CD status to WhatsApp
       if: always()
       run: |
+        REPO_NAME=${{ github.repository }}
+        WORKFLOW_NAME=${{ github.workflow }}
+        GITHUB_SHA=${{ github.sha }}
+        BRANCH_NAME=${{ github.ref }}
+        JOB_STATUS=${{ job.status }}
+        COMMIT_MESSAGE=${{ github.event.head_commit.message }}
+        ACTOR=${{ github.actor }}
+
+        MESSAGE="GitHub Action CI/CD Status: $JOB_STATUS
+        For repo: $REPO_NAME
+        Workflow: $WORKFLOW_NAME
+        Branch: $BRANCH_NAME
+        Commit: $GITHUB_SHA
+        Commit Message: $COMMIT_MESSAGE
+        Triggered by: $ACTOR"
+
         curl -X POST https://api.twilio.com/2010-04-01/Accounts/${{ secrets.TWILIO_ACCOUNT_SID }}/Messages.json \
-          --data-urlencode "Body=Portfolio GitHub Action CI/CD Status: ${{ job.status }} ✔️" \
+          --data-urlencode "Body=$MESSAGE" \
           --data-urlencode "From=whatsapp:${{ secrets.TWILIO_WHATSAPP_NUMBER }}" \
           --data-urlencode "To=whatsapp:${{ secrets.MY_WHATSAPP_NUMBER }}" \
           -u "${{ secrets.TWILIO_ACCOUNT_SID }}:${{ secrets.TWILIO_AUTH_TOKEN }}"
