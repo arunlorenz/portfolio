@@ -30,3 +30,14 @@ jobs:
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       run: npx vercel --prod --token $VERCEL_TOKEN --yes
+
+    - name: Send notification to WhatsApp
+      if: always()
+      uses: twilio-labs/twilio-action@v1
+      with:
+          to: ${{ secrets.MY_WHATSAPP_NUMBER }}
+          from: ${{ secrets.TWILIO_WHATSAPP_NUMBER }}
+          body: "Portfolio GitHub Action CI/CD Status: ${{ job.status }}"
+      env:
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
