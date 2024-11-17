@@ -40,7 +40,7 @@ jobs:
         WHATSAPP_TO_NUMBER: ${{ secrets.MY_WHATSAPP_NUMBER }}
         WHATSAPP_FROM_NUMBER: ${{ secrets.TWILIO_WHATSAPP_NUMBER }}
       with:
-        message: |
+        args: |
           GitHub Action CI/CD Status: ${{ job.status }}
           Repository: ${{ github.repository }}
           Workflow: ${{ github.workflow }}
