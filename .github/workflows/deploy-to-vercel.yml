@@ -34,15 +34,6 @@ jobs:
     - name: Send action status to WhatsApp
       if: always()
       run: |
-        curl -X POST "https://api.twilio.com/2010-04-01/Accounts/${{ secrets.TWILIO_ACCOUNT_SID }}/Messages.json" \
-          --data-urlencode "Body=$(printf 'GitHub Action CI/CD Status: %s\nFor repo: %s\nWorkflow: %s\nBranch: %s\nCommit: %s\nCommit Message: %s\nTriggered by: %s' \
-          "${{ job.status }}" \
-          "${{ github.repository }}" \
-          "${{ github.workflow }}" \
-          "${{ github.ref }}" \
-          "${{ github.sha }}" \
-          "${{ github.event.head_commit.message }}" \
-          "${{ github.actor }}" )" \
-          --data-urlencode "From=whatsapp:${{ secrets.TWILIO_WHATSAPP_NUMBER }}" \
-          --data-urlencode "To=whatsapp:${{ secrets.MY_WHATSAPP_NUMBER }}" \
-          -u "${{ secrets.TWILIO_ACCOUNT_SID }}:${{ secrets.TWILIO_AUTH_TOKEN }}"
+        curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+        -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+        -d text="GitHub Action CI/CD Status: ${{ job.status }}%0ARepository: ${{ github.repository }}%0AWorkflow: ${{ github.workflow }}%0ABranch: ${{ github.ref_name }}%0ACommit: ${{ github.sha }}%0ACommit Message: ${{ github.event.head_commit.message }}%0ATriggered by: ${{ github.actor }}"
