@@ -33,24 +33,18 @@ jobs:
 
     - name: Send action status to WhatsApp
       if: always()
-      run: |
-        branch_name="${{ github.ref }}"
-        branch_name="${branch_name#refs/heads/}"
-        
-        repo_name="${{ github.repository }}"
-        repo_name="${repo_name#*/}"
-        
-        short_commit_sha=$(echo "${{ github.sha }}" | cut -c1-7)  # Take the first 7 characters of the commit SHA
-
-        curl -X POST "https://api.twilio.com/2010-04-01/Accounts/${{ secrets.TWILIO_ACCOUNT_SID }}/Messages.json" \
-          --data-urlencode "Body=$(printf 'GitHub Action CI/CD Status: %s\n\nRepository: %s\nWorkflow: %s\nBranch: %s\nCommit: %s\nCommit Message: %s\nTriggered by: %s' \
-          "${{ job.status }}" \
-          "$repo_name" \
-          "${{ github.workflow }}" \
-          "$branch_name" \
-          "$short_commit_sha" \
-          "${{ github.event.head_commit.message }}" \
-          "${{ github.actor }}" )" \
-          --data-urlencode "From=whatsapp:${{ secrets.TWILIO_WHATSAPP_NUMBER }}" \
-          --data-urlencode "To=whatsapp:${{ secrets.MY_WHATSAPP_NUMBER }}" \
-          -u "${{ secrets.TWILIO_ACCOUNT_SID }}:${{ secrets.TWILIO_AUTH_TOKEN }}"
+      uses: atifazeez77/Whatsapp_Push_Notify@v1.0
+      env:
+        WHATSAPP_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+        WHATSAPP_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+        WHATSAPP_TO_NUMBER: ${{ secrets.MY_WHATSAPP_NUMBER }}
+        WHATSAPP_FROM_NUMBER: ${{ secrets.TWILIO_WHATSAPP_NUMBER }}
+      with:
+        message: |
+          GitHub Action CI/CD Status: ${{ job.status }}
+          Repository: ${{ github.repository }}
+          Workflow: ${{ github.workflow }}
+          Branch: ${{ github.ref_name }}
+          Commit: ${{ github.sha }}
+          Commit Message: ${{ github.event.head_commit.message }}
+          Triggered by: ${{ github.actor }}
