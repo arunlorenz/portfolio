@@ -39,9 +39,9 @@ jobs:
         -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
         -d parse_mode="HTML" \
         -d text="GitHub Action CI/CD Status: <b>${{ job.status }}</b>%0A
-        Repository: <a href='https://github.com/${{ github.repository }}'>${{ github.event.repository.name }}</a>%0A
-        Workflow: <b>${{ github.workflow }}</b>%0A
+        Repository: <b>${{ github.event.repository.name }}</b>%0A
         Branch: <b>${{ github.ref_name }}</b>%0A
-        Commit: <a href='https://github.com/${{ github.repository }}/commit/$GITHUB_SHA'>$SHORT_SHA</a>%0A
+        Commit: <b>$SHORT_SHA</b>%0A
         Commit Message: <b>${{ github.event.head_commit.message }}</b>%0A
+        Workflow: <b>${{ github.workflow }}</b>%0A
         Triggered by: <b>${{ github.actor }}</b>"
