@@ -12,3 +12,4 @@ I'll be updating this repo as I complete the challenge.
 - [Hound](https://houndci.com/) – Automated code review for pull requests (PRs)  
 - [StatusCake](https://www.statuscake.com/) – Monitoring the app's uptime and performance  
 - [PagerDuty](https://www.pagerduty.com/) – Incident monitoring and handling
+- [Docker](https://docker.com/) – Containerize the application
