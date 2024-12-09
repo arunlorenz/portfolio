@@ -1,7 +1,8 @@
 # Cloud Resume Challenge Portfolio
 
-Welcome to my portfolio repository! This project is part of the **AWS Cloud Resume Challenge**.  
-I'll be updating this repo as I complete the challenge.
+Welcome to my portfolio repository!<br>
+This project mainly focuses on various clous services and DevOps tools.<br>
+I'll be updating this repo with new additional tools.<br>
 
 [![Deploy to Vercel](https://github.com/arunlorenz/portfolio/actions/workflows/deploy-to-vercel.yml/badge.svg)](https://github.com/arunlorenz/portfolio/actions/workflows/deploy-to-vercel.yml)
 
