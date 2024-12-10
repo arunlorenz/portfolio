@@ -1,4 +1,4 @@
-# Cloud Resume Challenge Portfolio
+# Portfolio using Vue + React
 
 [![Deploy to Vercel](https://github.com/arunlorenz/portfolio/actions/workflows/deploy-to-vercel.yml/badge.svg)](https://github.com/arunlorenz/portfolio/actions/workflows/deploy-to-vercel.yml)
 
