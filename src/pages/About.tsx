@@ -32,7 +32,7 @@ experience:
 
 education:
   degree: Bachelor's in Electronics and Communication Engineering
-  university: Karpagam Institute of Technology - 2025`;
+  college: Karpagam Institute of Technology - 2025`;
 
 
   const lines = yamlContent.split('\n');
