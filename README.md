@@ -1,6 +1,6 @@
 # Portfolio using Vue + React
 
-[![Deploy to Vercel](https://github.com/arunlorenz/portfolio/actions/workflows/deploy-to-vercel.yml/badge.svg)](https://github.com/arunlorenz/portfolio/actions/workflows/deploy-to-vercel.yml)
+[![Deploy to Vercel](https://github.com/arunlorenz/portfolio/actions/workflows/deploy-and-notify.yml/badge.svg)](https://github.com/arunlorenz/portfolio/actions/workflows/deploy-and-notify.yml)
 
 Welcome to my portfolio repository!<br>
 This project mainly focuses on various clous services and DevOps tools.<br>
