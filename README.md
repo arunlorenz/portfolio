@@ -8,7 +8,7 @@ I'll be updating this repo with new additional tools.<br>
 
 ---
 
-## Tools I'm Using
+## Tools & Services I'm using in this repo
 
 - [Hound](https://houndci.com/) – Automated code review for pull requests (PRs)  
 - [StatusCake](https://www.statuscake.com/) – Monitoring the app's uptime and performance  
