@@ -34,11 +34,12 @@ jobs:
     - name: Send Slack Notification
       uses: slackapi/slack-github-action@v1.21.0
       with:
-        slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
-        channel: '#build-and-live-updates'
-        text: |
-          Deployment status: ${{ job.status }}
-          Commit: ${{ github.sha }}
-          Repository: ${{ github.repository }}
-          Branch: ${{ github.ref_name }}
-          Triggered by: ${{ github.actor }}
+        webhookUrl: ${{ secrets.SLACK_WEBHOOK_URL }}
+        channel-id: '#build-and-live-updates'
+        slack-message: |
+          *Deployment Status*: ${{ job.status }}
+          *Commit*: ${{ github.sha }}
+          *Repository*: ${{ github.repository }}
+          *Branch*: ${{ github.ref_name }}
+          *Triggered by*: ${{ github.actor }}
+      if: always()
