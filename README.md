@@ -14,3 +14,4 @@ I'll be updating this repo with new additional tools.<br>
 - [StatusCake](https://www.statuscake.com/) – Monitoring the app's uptime and performance  
 - [PagerDuty](https://www.pagerduty.com/) – Incident monitoring and handling
 - [Docker](https://docker.com/) – Containerize the application
+- [Slack](https://slack.com) - Notifications & Updates
