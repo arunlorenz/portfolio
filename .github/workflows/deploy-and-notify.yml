@@ -30,17 +30,3 @@ jobs:
       run: |
         docker build -t ${{ secrets.DOCKERHUBUSERNAME }}/portfolio:latest .
         docker push ${{ secrets.DOCKERHUBUSERNAME }}/portfolio:latest
-
-    - name: Send Slack Notification
-      uses: slackapi/slack-github-action@v1.21.0
-      with:
-        channel-id: '#build-and-live-updates'
-        slack-message: |
-          *Deployment Status*: ${{ job.status }}
-          *Commit*: ${{ github.sha }}
-          *Repository*: ${{ github.repository }}
-          *Branch*: ${{ github.ref_name }}
-          *Triggered by*: ${{ github.actor }}
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      if: always()
