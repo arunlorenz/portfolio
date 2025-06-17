@@ -36,6 +36,12 @@ export default function Home() {
             >
               My Projects
             </Link>
+            <Link
+              to="/architecture"
+              className="px-8 py-3 bg-zinc-800 text-zinc-100 rounded-full text-lg font-semibold hover:bg-zinc-700 transition-colors duration-300 transform hover:scale-105"
+            >
+              Architecture of this Repo
+            </Link>
           </div>
         </div>
       </div>
